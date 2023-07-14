@@ -1,0 +1,7 @@
+type: prometheusremotewrite
+
+status:
+  class: receiver
+  stability:
+    development: [metrics]
+
