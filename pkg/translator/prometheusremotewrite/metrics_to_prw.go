@@ -11,6 +11,7 @@ import (
 	"go.opentelemetry.io/collector/pdata/pcommon"
 	"go.opentelemetry.io/collector/pdata/pmetric"
 	"go.uber.org/multierr"
+	"go.uber.org/zap"
 
 	prometheustranslator "github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/prometheus"
 )
@@ -20,6 +21,10 @@ type Settings struct {
 	ExternalLabels      map[string]string
 	DisableTargetInfo   bool
 	ExportCreatedMetric bool
+
+	// New settings for prw_to_metrics
+	TimeThreshold int64
+	Logger        *zap.Logger
 }
 
 // FromMetrics converts pmetric.Metrics to prometheus remote write format.
